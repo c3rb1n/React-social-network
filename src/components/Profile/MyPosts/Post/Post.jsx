@@ -10,7 +10,7 @@ const Post = props => {
             {props.message}
             <div className={classes.like}>
                 <img
-                    src="https://lh3.googleusercontent.com/proxy/p8H3bJnqs-Go1H4ag9gY9BgFmuXkJZwlsXA1UI9I1gUofq_onl3b5l1My4XUxTsddKqPMuFoCTvFrgQ_-WWfYz0_aBvvaog"
+                    src="https://www.freeiconspng.com/thumbs/heart-png/heart-png-8.png"
                     alt="like"/>
                 {props.likesCount}
             </div>
