@@ -1,12 +1,12 @@
 import React from "react";
-import classes from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
+import classes from "./SidebarFriend.module.css"
 
-const DialogItem = props => {
-    let path = `/dialogs/${props.id}`;
+const SidebarFriend = props => {
+    let path = `/friends/${props.id}`;
 
     return (
-        <div className={classes.dialog}>
+        <div className={classes.item}>
             <div>
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoWjd80wBWItgh9qjgAjpbtq3XEdgmBwBAMmFdNzMYG1Rq2nUe&usqp=CAU"
@@ -19,4 +19,4 @@ const DialogItem = props => {
     );
 };
 
-export default DialogItem;
+export default SidebarFriend;

@@ -1,18 +1,14 @@
-.dialog {
-    text-align: center;
-}
-
-.dialog img {
+.item img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
 
-.dialog a {
+.item a {
     color: white;
     text-decoration: none;
 }
 
-.dialog a.active {
-    color: gold;
+.item a.active {
+    color: yellow;
 }
