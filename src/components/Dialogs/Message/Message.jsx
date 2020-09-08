@@ -4,6 +4,14 @@ import classes from "./Message.module.css";
 const Message = props => {
     let messagesElements = props.messages.map(m => <div className={classes.message}>{m}</div>);
 
+    let newMessageElement = React.createRef();
+
+    let sendMessage = () => {
+        let text = newMessageElement.current.value;
+
+        alert(text);
+    };
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.title}>
@@ -21,10 +29,10 @@ const Message = props => {
             </div>
             <div className={classes.form}>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newMessageElement}></textarea>
                 </div>
                 <div>
-                    <button>Send message</button>
+                    <button onClick={sendMessage}>Send message</button>
                 </div>
             </div>
         </div>
