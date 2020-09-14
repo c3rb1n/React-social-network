@@ -4,17 +4,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import {BrowserRouter} from "react-router-dom";
 
 let rerenderEntireTree = state => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()}
-                 updateNewPostText={store.updateNewPostText.bind(store)}
-                 addPost={store.addPost.bind(store)}
-                 updateNewMessageText={store.updateNewMessageText.bind(store)}
-                 sendMessage={store.sendMessage.bind(store)}/>
-        </React.StrictMode>,
-        document.getElementById("root")
+            <BrowserRouter>
+                <App state={state} dispatch={store.dispatch.bind(store)}/>
+            </BrowserRouter>
+        </React.StrictMode>, document.getElementById("root")
     );
 };
 

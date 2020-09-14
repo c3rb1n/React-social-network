@@ -13,8 +13,7 @@ const Dialogs = props => {
                  name={m.name}
                  messages={m.messages}
                  newMessageText={m.newMessageText}
-                 updateNewMessageText={props.updateNewMessageText}
-                 sendMessage={props.sendMessage}/>);
+                 dispatch={props.dispatch}/>);
 
     return (
         <div className={classes.dialogs}>

@@ -75,52 +75,54 @@ let store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log("State was changed.");
     },
-    updateNewPostText(newText) {
-        this.getState().profilePage.newPostText = newText;
-        this._callSubscriber(this.getState());
-    },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this.getState().profilePage.newPostText,
-            likesCount: 0
-        }
-        this.getState().profilePage.posts.push(newPost);
-        this.getState().profilePage.newPostText = "";
-        this._callSubscriber(this.getState());
-    },
-    updateNewMessageText(newText, id) {
-        let messages = this.getState().dialogsPage.messages;
-        let messagesIndex = id - 1;
 
-        for (let i = 0; i < messages.length; i++) {
-            if (i === messagesIndex) {
-                messages[messagesIndex].newMessageText = newText;
-                this._callSubscriber(this.getState());
-            }
-        }
-    },
-    sendMessage(id) {
-        let messages = this.getState().dialogsPage.messages;
-        let messagesIndex = id - 1;
-
-        for (let i = 0; i < messages.length; i++) {
-            if (i === messagesIndex) {
-                let newMessage = messages[messagesIndex].newMessageText;
-                messages[messagesIndex].messages.push(newMessage);
-                messages[messagesIndex].newMessageText = "";
-                this._callSubscriber(this.getState());
-            }
-        }
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+        if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === "ADD-POST") {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+            let messages = this._state.dialogsPage.messages;
+            let messagesIndex = action.id - 1;
+
+            for (let i = 0; i < messages.length; i++) {
+                if (i === messagesIndex) {
+                    messages[messagesIndex].newMessageText = action.newText;
+                    this._callSubscriber(this._state);
+                }
+            }
+        } else if (action.type === "SEND-MESSAGE") {
+            let messages = this._state.dialogsPage.messages;
+            let messagesIndex = action.id - 1;
+
+            for (let i = 0; i < messages.length; i++) {
+                if (i === messagesIndex) {
+                    let newMessage = messages[messagesIndex].newMessageText;
+                    messages[messagesIndex].messages.push(newMessage);
+                    messages[messagesIndex].newMessageText = "";
+                    this._callSubscriber(this._state);
+                }
+            }
+        }
     }
 };
 

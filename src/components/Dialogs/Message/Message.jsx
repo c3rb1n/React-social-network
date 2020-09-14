@@ -8,11 +8,11 @@ const Message = props => {
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessageText(text, props.id);
+        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text, id: props.id});
     };
 
     let sendMessage = () => {
-        props.sendMessage(props.id);
+        props.dispatch({type: "SEND-MESSAGE", id: props.id});
     };
 
     return (
