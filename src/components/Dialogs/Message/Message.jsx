@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Message.module.css";
+import {updateNewMessageTextActionCreator, sendMessageActionCreator} from "../../../redux/store";
 
 const Message = props => {
     let messagesElements = props.messages.map(m => <div className={classes.message}>{m}</div>);
@@ -8,11 +9,13 @@ const Message = props => {
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text, id: props.id});
+        let action = updateNewMessageTextActionCreator(text, props.id);
+        props.dispatch(action);
     };
 
     let sendMessage = () => {
-        props.dispatch({type: "SEND-MESSAGE", id: props.id});
+        let action = sendMessageActionCreator(props.id);
+        props.dispatch(action);
     };
 
     return (
