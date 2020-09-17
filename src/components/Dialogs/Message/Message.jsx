@@ -3,12 +3,10 @@ import classes from "./Message.module.css";
 import {updateNewMessageTextActionCreator, sendMessageActionCreator} from "../../../redux/store";
 
 const Message = props => {
-    let messagesElements = props.messages.map(m => <div className={classes.message}>{m}</div>);
+    let messagesElements = props.messages.map(m => <div className={classes.message}>{m.message}</div>);
 
-    let newMessageElement = React.createRef();
-
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
+    let onMessageChange = (event) => {
+        let text = event.target.value;
         let action = updateNewMessageTextActionCreator(text, props.id);
         props.dispatch(action);
     };
@@ -35,7 +33,9 @@ const Message = props => {
             </div>
             <div className={classes.form}>
                 <div>
-                    <textarea ref={newMessageElement} onChange={onMessageChange} value={props.newMessageText}/>
+                    <textarea onChange={onMessageChange}
+                              value={props.newMessageText}
+                              placeholder="Enter your message"/>
                 </div>
                 <div>
                     <button onClick={sendMessage}>Send message</button>

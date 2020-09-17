@@ -26,38 +26,80 @@ let store = {
             messages: [
                 {
                     id: 1,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Ilya",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 },
                 {
                     id: 2,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Vitaly",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 },
                 {
                     id: 3,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Sergey",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 },
                 {
                     id: 4,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Svyatoslav",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 },
                 {
                     id: 5,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Alexander",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 },
                 {
                     id: 6,
-                    messages: ["Hi!", "How are you?", "What are you doing?", "Hello!", "Hello!", "Hello!"],
                     name: "Dmitry",
+                    messages: [
+                        {id: 1, message: "Hi!"},
+                        {id: 2, message: "How are you?"},
+                        {id: 3, message: "What are you doing?"},
+                        {id: 4, message: "Hello!"},
+                        {id: 5, message: "Hello!"},
+                        {id: 6, message: "Hello!"},
+                    ],
                     newMessageText: ""
                 }
             ]
@@ -121,7 +163,10 @@ let store = {
 
             for (let i = 0; i < messages.length; i++) {
                 if (i === messagesIndex) {
-                    let newMessage = messages[messagesIndex].newMessageText;
+                    let newMessage = {
+                        id: 7,
+                        message: messages[messagesIndex].newMessageText
+                    };
                     messages[messagesIndex].messages.push(newMessage);
                     messages[messagesIndex].newMessageText = "";
                     this._callSubscriber(this._state);
