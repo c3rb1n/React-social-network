@@ -1,19 +1,16 @@
 import React from "react";
 import classes from "./Message.module.css";
-import {updateNewMessageTextActionCreator, sendMessageActionCreator,} from "../../../redux/dialogsPage-reducer";
 
 const Message = props => {
     let messagesElements = props.messages.map(m => <div className={classes.message}>{m.message}</div>);
 
     let onMessageChange = (event) => {
         let text = event.target.value;
-        let action = updateNewMessageTextActionCreator(text, props.id);
-        props.dispatch(action);
+        props.updateNewMessageText(text, props.id);
     };
 
-    let sendMessage = () => {
-        let action = sendMessageActionCreator(props.id);
-        props.dispatch(action);
+    let onSendMessage = () => {
+        props.sendMessage(props.id);
     };
 
     return (
@@ -38,7 +35,7 @@ const Message = props => {
                               placeholder="Enter your message"/>
                 </div>
                 <div>
-                    <button onClick={sendMessage}>Send message</button>
+                    <button onClick={onSendMessage}>Send message</button>
                 </div>
             </div>
         </div>
