@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Message.module.css";
-import {updateNewMessageTextActionCreator, sendMessageActionCreator} from "../../../redux/store";
+import {updateNewMessageTextActionCreator, sendMessageActionCreator,} from "../../../redux/dialogsPage-reducer";
 
 const Message = props => {
     let messagesElements = props.messages.map(m => <div className={classes.message}>{m.message}</div>);

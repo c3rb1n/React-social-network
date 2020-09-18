@@ -1,7 +1,6 @@
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const SEND_MESSAGE = "SEND-MESSAGE";
+import profilePageReducer from "./profilePage-reducer";
+import dialogsPageReducer from "./dialogsPage-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
     _state: {
@@ -134,66 +133,12 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            }
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = "";
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            let messages = this._state.dialogsPage.messages;
-            let messagesIndex = action.id - 1;
-
-            for (let i = 0; i < messages.length; i++) {
-                if (i === messagesIndex) {
-                    messages[messagesIndex].newMessageText = action.newText;
-                    this._callSubscriber(this._state);
-                }
-            }
-        } else if (action.type === SEND_MESSAGE) {
-            let messages = this._state.dialogsPage.messages;
-            let messagesIndex = action.id - 1;
-
-            for (let i = 0; i < messages.length; i++) {
-                if (i === messagesIndex) {
-                    let newMessage = {
-                        id: 7,
-                        message: messages[messagesIndex].newMessageText
-                    };
-                    messages[messagesIndex].messages.push(newMessage);
-                    messages[messagesIndex].newMessageText = "";
-                    this._callSubscriber(this._state);
-                }
-            }
-        }
+        this._callSubscriber(this._state);
     }
 };
-
-export const updateNewPostTextActionCreator = newText => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText
-});
-
-export const addPostActionCreator = () => ({
-    type: ADD_POST
-});
-
-export const updateNewMessageTextActionCreator = (newText, id) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newText,
-    id
-});
-
-export const sendMessageActionCreator = id => ({
-    type: SEND_MESSAGE,
-    id
-});
 
 export default store;
