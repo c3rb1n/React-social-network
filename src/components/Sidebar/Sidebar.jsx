@@ -6,8 +6,8 @@ import SidebarFriendsContainer from "./SidebarFriends/SidebarFriendsContainer";
 const Sidebar = props => {
     return (
         <div className={classes.sidebar}>
-            <NavbarContainer store={props.store}/>
-            <SidebarFriendsContainer store={props.store}/>
+            <NavbarContainer/>
+            <SidebarFriendsContainer/>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import classes from "./NavbarElement.module.css"
+import classes from "./NavbarElement.module.css";
 
 const NavbarElement = props => {
 
