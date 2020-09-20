@@ -1,10 +1,11 @@
 let initialState = {
     elements: [
         {id: 1, path: "/profile", value: "Profile"},
-        {id: 2, path: "/dialogs", value: "Messages"},
-        {id: 3, path: "/news", value: "News"},
-        {id: 4, path: "/music", value: "Music"},
-        {id: 5, path: "/settings", value: "Settings"},
+        {id: 2, path: "/users", value: "Users"},
+        {id: 3, path: "/dialogs", value: "Messages"},
+        {id: 4, path: "/news", value: "News"},
+        {id: 5, path: "/music", value: "Music"},
+        {id: 6, path: "/settings", value: "Settings"},
     ],
     friends: [
         {id: 1, name: "Ilya"},

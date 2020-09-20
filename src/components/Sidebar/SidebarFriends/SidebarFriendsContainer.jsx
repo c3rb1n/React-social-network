@@ -12,6 +12,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-const SidebarFriendsContainer = connect(mapStateToProps, mapDispatchToProps)(SidebarFriends);
-
-export default SidebarFriendsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarFriends);

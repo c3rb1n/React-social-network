@@ -13,16 +13,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateNewMessageText: (text, id) => {
-            let action = updateNewMessageTextActionCreator(text, id);
-            dispatch(action);
+            dispatch(updateNewMessageTextActionCreator(text, id));
         },
         sendMessage: id => {
-            let action = sendMessageActionCreator(id);
-            dispatch(action);
+            dispatch(sendMessageActionCreator(id));
         }
     };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(Dialogs);

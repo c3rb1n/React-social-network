@@ -12,6 +12,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 }
 
-const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar);
-
-export default NavbarContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

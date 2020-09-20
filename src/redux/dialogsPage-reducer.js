@@ -99,10 +99,12 @@ const dialogsPageReducer = (state = initialState, action) => {
                 ...state,
                 messages: state.messages.map(m => {
                     if (m.id === action.messageId) {
-                        return {...m, newMessageText: action.newText};
-                    } else {
-                        return m;
+                        return {
+                            ...m,
+                            newMessageText: action.newText
+                        };
                     }
+                    return m;
                 })
             };
         }
@@ -116,13 +118,13 @@ const dialogsPageReducer = (state = initialState, action) => {
                 ...state,
                 messages: state.messages.map(m => {
                     if (m.id === action.messageId) {
-                        return {...m,
+                        return {
+                            ...m,
                             messages: [...state.messages[action.messageId - 1].messages, newMessage],
                             newMessageText: ""
                         };
-                    } else {
-                        return m;
                     }
+                    return m;
                 })
             };
         }
