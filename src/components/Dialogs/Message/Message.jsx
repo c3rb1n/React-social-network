@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Message.module.css";
 
 const Message = props => {
-    let messagesElements = props.messages.map(m => <div className={classes.message}>{m.message}</div>);
+    let messagesElements = props.messages.map(m => <div className={classes.message} key={m.id}>{m.message}</div>);
 
     let onMessageChange = (event) => {
         let text = event.target.value;

@@ -93,42 +93,52 @@ let initialState = {
 };
 
 const dialogsPageReducer = (state = initialState, action) => {
-    let messages = state.messages;
-    let messagesIndex = action.id - 1;
-
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_TEXT:
-            for (let i = 0; i < messages.length; i++) {
-                if (i === messagesIndex) {
-                    messages[messagesIndex].newMessageText = action.newText;
-                }
-            }
-            return state;
-        case SEND_MESSAGE:
-            for (let i = 0; i < messages.length; i++) {
-                if (i === messagesIndex) {
-                    let newMessage = {
-                        id: 7,
-                        message: messages[messagesIndex].newMessageText
-                    };
-                    messages[messagesIndex].messages.push(newMessage);
-                    messages[messagesIndex].newMessageText = "";
-                }
-            }
-            return state;
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            return {
+                ...state,
+                messages: state.messages.map(m => {
+                    if (m.id === action.messageId) {
+                        return {...m, newMessageText: action.newText};
+                    } else {
+                        return m;
+                    }
+                })
+            };
+        }
+        case SEND_MESSAGE: {
+            let newMessage = {
+                id: 7,
+                message: state.messages[action.messageId - 1].newMessageText
+            };
+
+            return {
+                ...state,
+                messages: state.messages.map(m => {
+                    if (m.id === action.messageId) {
+                        return {...m,
+                            messages: [...state.messages[action.messageId - 1].messages, newMessage],
+                            newMessageText: ""
+                        };
+                    } else {
+                        return m;
+                    }
+                })
+            };
+        }
         default:
             return state;
     }
 };
 
-export const updateNewMessageTextActionCreator = (newText, id) => ({
+export const updateNewMessageTextActionCreator = (newText, messageId) => ({
     type: UPDATE_NEW_MESSAGE_TEXT,
     newText,
-    id
+    messageId
 });
-export const sendMessageActionCreator = id => ({
+export const sendMessageActionCreator = messageId => ({
     type: SEND_MESSAGE,
-    id
+    messageId
 });
 
 export default dialogsPageReducer;

@@ -3,7 +3,7 @@ import classes from "./Navbar.module.css";
 import NavbarElement from "./NavbarElement/NavbarElement";
 
 const Navbar = props => {
-    let navbarElements = props.elements.map(e => <NavbarElement path={e.path} value={e.value}/>);
+    let navbarElements = props.elements.map(n => <NavbarElement key={n.id} path={n.path} value={n.value}/>);
 
     return (
         <nav>

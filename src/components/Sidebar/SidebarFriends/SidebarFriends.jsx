@@ -4,7 +4,7 @@ import classes from "./SidebarFriends.module.css"
 import SidebarFriend from "./SidebarFriend/SidebarFriend";
 
 const SidebarFriends = props => {
-    let sidebarFriendsElements = props.friends.map(f => <SidebarFriend name={f.name} id={f.id}/>);
+    let sidebarFriendsElements = props.friends.map(f => <SidebarFriend key={f.id} name={f.name} id={f.id}/>);
 
     return (
         <div className={classes.sidebarFriends}>
