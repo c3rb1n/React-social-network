@@ -14,7 +14,7 @@ const User = props => {
     return (
         <div>
             <div className={classes.userPhoto}>
-                <img src={props.photo !== null ? props.photo : userPhoto} alt="user"/>
+                <img src={props.photo != null ? props.photo : userPhoto} alt="user"/>
             </div>
             <div>{props.followed ?
                 <button onClick={onUnfollow}>Unfollow</button> :
