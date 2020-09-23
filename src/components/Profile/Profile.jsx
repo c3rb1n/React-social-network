@@ -1,13 +1,15 @@
 import React from "react";
 import classes from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = props => {
     return (
         <section>
-            <ProfileInfo/>
-            <MyPostsContainer/>
+            <ProfileInfo profile={props.profile}/>
+            <MyPosts posts={props.posts} newPostText={props.newPostText}
+                     updateNewPostText={props.updateNewPostText}
+                     addPost={props.addPost}/>
         </section>
     );
 };

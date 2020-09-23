@@ -3,7 +3,7 @@ import "./App.css";
 import {Route} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Profile from "./components/Profile/Profile";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
@@ -17,7 +17,7 @@ const App = props => {
             <Header/>
             <Sidebar/>
             <div className="app-wrapper-content">
-                <Route path="/profile" render={() => <Profile/>}/>
+                <Route path="/profile" render={() => <ProfileContainer/>}/>
                 <Route path="/users" render={() => <UsersContainer/>}/>
                 <Route path="/dialogs" render={() => <DialogsContainer/>}/>
                 <Route path="/news" render={() => <News/>}/>

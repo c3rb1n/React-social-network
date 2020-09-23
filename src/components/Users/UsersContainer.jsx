@@ -21,7 +21,7 @@ class UsersContainer extends React.Component {
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
             });
-    }
+    };
 
     onPageChanged = pageNumber => {
         this.props.setCurrentPage(pageNumber);
@@ -31,7 +31,7 @@ class UsersContainer extends React.Component {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
             });
-    }
+    };
 
     render = () => {
         return <>
@@ -44,8 +44,8 @@ class UsersContainer extends React.Component {
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}/>
         </>
-    }
-}
+    };
+};
 
 const mapStateToProps = state => {
     return {
