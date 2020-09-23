@@ -5,6 +5,10 @@
     margin-right: 50px;
 }
 
+.altPhoto {
+    border-radius: 100%;
+}
+
 .fullName {
     font-size: 42px;
     font-weight: bold;

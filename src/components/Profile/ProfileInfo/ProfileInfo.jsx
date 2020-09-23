@@ -1,18 +1,22 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/user.png"
 
 const ProfileInfo = props => {
     if (!props.profile) {
         return <Preloader/>
     }
+
     return (
         <div>
 
             <div className={classes.descriptionBlock}>
                 <div>
                     <div>
-                        <img src={props.profile.photos.large} alt="avatar"/>
+                        {props.profile.photos.large ?
+                            <img src={props.profile.photos.large} alt="avatar"/> :
+                            <img className={classes.altPhoto} src={userPhoto} alt="avatar"/>}
                     </div>
                     <div className={classes.fullName}>
                         {props.profile.fullName}
