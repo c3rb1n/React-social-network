@@ -10,6 +10,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
+import Login from "./components/Login/Login";
 
 const App = props => {
     return (
@@ -24,6 +25,7 @@ const App = props => {
                 <Route path="/music" render={() => <Music/>}/>
                 <Route path="/settings" render={() => <Settings/>}/>
                 <Route path="/friends" render={() => <Friends/>}/>
+                <Route path="/login" render={() => <Login/>}/>
             </div>
         </div>
     );
