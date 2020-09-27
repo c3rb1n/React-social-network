@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./Users.module.css";
 import User from "./User/User";
-import {toggleFollowingProgress} from "../../redux/usersPage-reducer";
 
 const Users = props => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -30,7 +29,7 @@ const Users = props => {
                                             followingInProgress={props.followingInProgress}
                                             follow={props.follow}
                                             unfollow={props.unfollow}
-                                            toggleFollowingProgress={props.toggleFollowingProgress}/>)}
+                />)}
             </div>
         </div>
     );
