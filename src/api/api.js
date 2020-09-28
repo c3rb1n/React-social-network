@@ -17,6 +17,9 @@ export const authAPI = {
 export const profileAPI = {
     getProfile(userId) {
         return axiosInstance.get(`profile/${userId}`).then(response => response.data);
+    },
+    getStatus(userId) {
+        return axiosInstance.get(`profile/status/${userId}`).then(response => response.data);
     }
 };
 
