@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getUserProfile, updateNewPostText, addPost, getUserStatus} from "../../redux/profilePage-reducer";
+import {getUserProfile, updateNewPostText, addPost, getStatus, updateStatus} from "../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
@@ -14,10 +14,7 @@ class ProfileContainer extends React.Component {
         }
 
         this.props.getUserProfile(userId);
-
-        if (!this.props.status) {
-            this.props.getUserStatus(userId);
-        }
+        this.props.getStatus(userId);
     };
 
     render = () => {
@@ -38,6 +35,6 @@ const mapStateToProps = state => {
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, updateNewPostText, addPost, getUserStatus}),
+    connect(mapStateToProps, {getUserProfile, updateNewPostText, addPost, getStatus, updateStatus}),
     withRouter
 )(ProfileContainer);
