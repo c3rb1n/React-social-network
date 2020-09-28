@@ -1,6 +1,7 @@
 import React from "react";
 import SidebarFriends from "./SidebarFriends";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
 const mapStateToProps = state => {
     return {
@@ -12,4 +13,6 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidebarFriends);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps)
+)(SidebarFriends);
