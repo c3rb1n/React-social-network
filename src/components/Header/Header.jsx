@@ -2,8 +2,10 @@ import React from "react";
 import classes from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 import userPhoto from "../../assets/images/user.png";
+import Preloader from "../common/Preloader/Preloader";
 
 const Header = props => {
+
     return (
         <header className={classes.header}>
             <img
@@ -18,6 +20,7 @@ const Header = props => {
                         <span className={classes.login}>
                             {props.login}
                         </span>
+                        <button onClick={props.logout}>Log out</button>
                     </NavLink> :
                     <NavLink to="/login">Login</NavLink>}
             </div>
