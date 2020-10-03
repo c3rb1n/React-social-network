@@ -1,12 +1,14 @@
 import {authAPI, profileAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const SET_AUTH_USER_DATA = "SET_USER_DATA";
 
 let initialState = {
+    userId: null,
     profile: null,
     email: null,
     login: null,
-    isAuth: false,
+    isAuth: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -22,9 +24,10 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export const setAuthUserData = (profile, email, login, isAuth) => ({
+export const setAuthUserData = (userId, profile, email, login, isAuth) => ({
     type: SET_AUTH_USER_DATA,
     payload: {
+        userId,
         profile,
         email,
         login,
@@ -38,16 +41,21 @@ export const getAuthUserData = () => dispatch => {
             let {id, email, login} = data.data;
 
             profileAPI.getProfile(id).then(data => {
-                dispatch(setAuthUserData(data, email, login, true));
+                dispatch(setAuthUserData(data.userId, data, email, login, true));
             });
         }
     });
 };
 
 export const login = (email, password, rememberMe) => dispatch => {
+
+
     authAPI.login(email, password, rememberMe).then(data => {
             if (data.resultCode === 0) {
                 dispatch(getAuthUserData());
+            } else {
+                let message = data.messages.length > 0 ? data.messages[0] : "Some error";
+                dispatch(stopSubmit("login", {_error: message}));
             }
         }
     );
