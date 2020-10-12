@@ -3,23 +3,23 @@ import classes from "./User.module.css";
 import userPhoto from "../../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
 
-const User = props => {
+const User = ({id, photo, followed, name, status, followingInProgress, unfollow, follow}) => {
     return (
         <div>
             <div className={classes.userPhoto}>
-                <NavLink to={`/profile/${props.id}`}>
-                    <img src={props.photo != null ? props.photo : userPhoto} alt="user"/>
+                <NavLink to={`/profile/${id}`}>
+                    <img src={photo != null ? photo : userPhoto} alt="user"/>
                 </NavLink>
             </div>
             <div>
-                {props.followed ?
-                    <button disabled={props.followingInProgress.some(id => id === props.id)}
-                            onClick={() => props.unfollow(props.id)}>Unfollow</button> :
-                    <button disabled={props.followingInProgress.some(id => id === props.id)}
-                            onClick={() => props.follow(props.id)}>Follow</button>}
+                {followed ?
+                    <button disabled={followingInProgress.some(i => i === id)}
+                            onClick={() => unfollow(id)}>Unfollow</button> :
+                    <button disabled={followingInProgress.some(i => i === id)}
+                            onClick={() => follow(id)}>Follow</button>}
             </div>
-            <div>{props.name}</div>
-            <div>{props.status}</div>
+            <div>{name}</div>
+            <div>{status}</div>
             <div>{"props.country"}</div>
             <div>{"props.city"}</div>
         </div>

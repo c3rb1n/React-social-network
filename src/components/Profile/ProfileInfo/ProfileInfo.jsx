@@ -4,8 +4,8 @@ import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = props => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader/>
     }
 
@@ -14,52 +14,52 @@ const ProfileInfo = props => {
             <div className={classes.descriptionBlock}>
                 <div>
                     <div>
-                        {props.profile.photos.large ?
-                            <img src={props.profile.photos.large} alt="avatar"/> :
+                        {profile.photos.large ?
+                            <img src={profile.photos.large} alt="avatar"/> :
                             <img className={classes.altPhoto} src={userPhoto} alt="avatar"/>}
                     </div>
                     <div className={classes.fullName}>
-                        {props.profile.fullName}
+                        {profile.fullName}
                     </div>
                     <div className={classes.aboutMe}>
-                        {props.profile.aboutMe}
+                        {profile.aboutMe}
                     </div>
-                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 </div>
                 <div className={classes.contacts}>
                     <div className={classes.title}>
                         CONTACTS:
                     </div>
                     <div>
-                        <a href={props.profile.contacts.facebook}
+                        <a href={profile.contacts.facebook}
                            target="_blank">Facebook</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.website}
+                        <a href={profile.contacts.website}
                            target="_blank">Website</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.vk}
+                        <a href={profile.contacts.vk}
                            target="_blank">VK</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.twitter}
+                        <a href={profile.contacts.twitter}
                            target="_blank">Twitter</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.instagram}
+                        <a href={profile.contacts.instagram}
                            target="_blank">Instagram</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.youtube}
+                        <a href={profile.contacts.youtube}
                            target="_blank">Youtube</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.github}
+                        <a href={profile.contacts.github}
                            target="_blank">Github</a>
                     </div>
                     <div>
-                        <a href={props.profile.contacts.mainLink}
+                        <a href={profile.contacts.mainLink}
                            target="_blank">Main Link</a>
                     </div>
                 </div>

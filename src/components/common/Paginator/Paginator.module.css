@@ -1,0 +1,21 @@
+.pages {
+    text-align: center;
+}
+
+.pages button {
+    display: inline-block;
+    width: 40px;
+    background-color: purple;
+    color: white;
+    border: 1px solid black;
+    margin-right: 4px;
+}
+
+.pages button:hover {
+    background-color: mediumpurple;
+}
+
+.pages .selectedPage {
+    font-weight: bold;
+    color: greenyellow;
+}

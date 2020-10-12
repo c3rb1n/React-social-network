@@ -66,22 +66,21 @@ export const deletePost = postId => ({
     postId
 });
 
-export const getUserProfile = userId => dispatch => {
-    profileAPI.getProfile(userId).then(data => {
-        dispatch(setUserProfile(data));
-    });
+export const getUserProfile = userId => async dispatch => {
+    let data = await profileAPI.getProfile(userId);
+
+    dispatch(setUserProfile(data));
 };
-export const getStatus = userId => dispatch => {
-    profileAPI.getStatus(userId).then(data => {
-        dispatch(setStatus(data));
-    });
+export const getStatus = userId => async dispatch => {
+    let data = await profileAPI.getStatus(userId);
+
+    dispatch(setStatus(data));
 };
-export const updateStatus = status => dispatch => {
-    profileAPI.updateStatus(status).then(data => {
-        if (data.resultCode === 0) {
-            dispatch(setStatus(status));
-        }
-    });
+export const updateStatus = status => async dispatch => {
+    let data = await profileAPI.updateStatus(status);
+    if (data.resultCode === 0) {
+        dispatch(setStatus(status));
+    }
 };
 
 export default profilePageReducer;
