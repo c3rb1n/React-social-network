@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 import userPhoto from "../../assets/images/user.png";
-import Preloader from "../common/Preloader/Preloader";
 
 const Header = props => {
 
@@ -13,7 +12,7 @@ const Header = props => {
                 alt="logo"/>
             <div className={classes.loginBlock}>
                 {props.isAuth ?
-                    <NavLink to={`/profile/${props.profile.userId}`}>
+                    <NavLink to={"/profile"}>
                         <img src={props.profile.photos.small ?
                             props.profile.photos.small :
                             userPhoto} alt="avatar"/>

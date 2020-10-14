@@ -6,8 +6,13 @@ import MyPosts from "./MyPosts/MyPosts";
 const Profile = props => {
     return (
         <section>
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
-            <MyPosts posts={props.posts} newPostText={props.newPostText}
+            <ProfileInfo isOwner={props.isOwner}
+                         profile={props.profile}
+                         status={props.status}
+                         updateStatus={props.updateStatus}
+                         savePhoto={props.savePhoto}/>
+            <MyPosts posts={props.posts}
+                     newPostText={props.newPostText}
                      updateNewPostText={props.updateNewPostText}
                      addPost={props.addPost}/>
         </section>

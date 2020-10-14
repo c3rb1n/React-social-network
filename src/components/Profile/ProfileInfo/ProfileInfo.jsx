@@ -4,19 +4,26 @@ import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
     }
+
+    const photoSelected = event => {
+        if (event.target.files.length) {
+            savePhoto(event.target.files[0]);
+        }
+    };
 
     return (
         <div>
             <div className={classes.descriptionBlock}>
                 <div>
                     <div>
-                        {profile.photos.large ?
-                            <img src={profile.photos.large} alt="avatar"/> :
-                            <img className={classes.altPhoto} src={userPhoto} alt="avatar"/>}
+                        <img className={classes.photo}
+                             src={profile.photos.large || userPhoto}
+                             alt="avatar"/>
+                        {isOwner && <input type="file" onChange={photoSelected}/>}
                     </div>
                     <div className={classes.fullName}>
                         {profile.fullName}
