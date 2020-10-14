@@ -6,23 +6,24 @@ import Paginator from "../common/Paginator/Paginator";
 const Users = ({
                    totalUsersCount, pageSize, currentPage,
                    onPageChanged, users, followingInProgress,
-                   follow, unfollow, ...props}) => {
+                   follow, unfollow, ...props
+               }) => {
     return (
         <div>
-            <Paginator totalUsersCount={totalUsersCount}
+            <Paginator totalItemsCount={totalUsersCount}
                        pageSize={pageSize}
                        currentPage={currentPage}
                        onPageChanged={onPageChanged}/>
             <div>
                 {users.map(u => <User key={u.id}
-                                            name={u.name}
-                                            id={u.id}
-                                            photo={u.photos.small}
-                                            status={u.status}
-                                            followed={u.followed}
-                                            followingInProgress={followingInProgress}
-                                            follow={follow}
-                                            unfollow={unfollow}
+                                      name={u.name}
+                                      id={u.id}
+                                      photo={u.photos.small}
+                                      status={u.status}
+                                      followed={u.followed}
+                                      followingInProgress={followingInProgress}
+                                      follow={follow}
+                                      unfollow={unfollow}
                 />)}
             </div>
         </div>
