@@ -10,13 +10,13 @@ const axiosInstance = axios.create({
 
 export const authAPI = {
     me() {
-        return axiosInstance.get(`auth/me`).then(response => response.data);
+        return axiosInstance.get("auth/me").then(response => response.data);
     },
     login(email, password, rememberMe = false) {
-        return axiosInstance.post(`auth/login`, {email, password, rememberMe}).then(response => response.data);
+        return axiosInstance.post("auth/login", {email, password, rememberMe}).then(response => response.data);
     },
     logout() {
-        return axiosInstance.delete(`auth/login`).then(response => response.data);
+        return axiosInstance.delete("auth/login").then(response => response.data);
     }
 };
 
@@ -28,17 +28,20 @@ export const profileAPI = {
         return axiosInstance.get(`profile/status/${userId}`).then(response => response.data);
     },
     updateStatus(status) {
-        return axiosInstance.put(`profile/status`, {status}).then(response => response.data);
+        return axiosInstance.put("profile/status", {status}).then(response => response.data);
     },
     savePhoto(photoFile) {
         const formData = new FormData();
         formData.append("image", photoFile);
 
-        return axiosInstance.put(`profile/photo`, formData, {
+        return axiosInstance.put("profile/photo", formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
         }).then(response => response.data);
+    },
+    saveProfile(profile) {
+        return axiosInstance.put("profile", profile).then(response => response.data);
     }
 };
 

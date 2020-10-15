@@ -1,30 +1,4 @@
-.descriptionBlock {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin-right: 50px;
-}
-
 .photo {
-    border-radius: 100%;
-}
-
-.fullName {
-    font-size: 42px;
-    font-weight: bold;
-}
-
-.aboutMe {
-    font-style: italic;
-    margin-bottom: 50px;
-}
-
-.title {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.contacts a {
-    text-decoration: none;
-    color: white;
+    width: 300px;
+    height: 300px;
 }

@@ -1,0 +1,14 @@
+.fullName {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.aboutMe {
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}

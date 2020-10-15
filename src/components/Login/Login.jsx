@@ -15,7 +15,7 @@ let LoginForm = ({handleSubmit, error}) => {
         <form onSubmit={handleSubmit}>
             {createField(Input, "email", "Email", "email", [required, maxLength20])}
             {createField(Input, "password", "Password", "password", [required, maxLength20])}
-            {createField(Input, "checkbox", null, "rememberMe", [], {},"Remember Me")}
+            {createField(Input, "checkbox", null, "rememberMe", [], {}, "Remember Me")}
 
             {error && <div className={classes.formSummaryError}>
                 {error}

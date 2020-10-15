@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
+import userPhoto from "../../../assets/images/user.png";
 
 const DialogItem = props => {
     let path = `/dialogs/${props.id}`;
@@ -9,7 +10,7 @@ const DialogItem = props => {
         <div className={classes.dialog}>
             <div>
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoWjd80wBWItgh9qjgAjpbtq3XEdgmBwBAMmFdNzMYG1Rq2nUe&usqp=CAU"
+                    src={userPhoto}
                     alt="user"/>
             </div>
             <div>

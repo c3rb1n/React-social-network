@@ -1,6 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import classes from "./SidebarFriend.module.css"
+import userPhoto from "../../../../assets/images/user.png";
 
 const SidebarFriend = props => {
     let path = `/friends/${props.id}`;
@@ -9,7 +10,7 @@ const SidebarFriend = props => {
         <div className={classes.item}>
             <div>
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoWjd80wBWItgh9qjgAjpbtq3XEdgmBwBAMmFdNzMYG1Rq2nUe&usqp=CAU"
+                    src={userPhoto}
                     alt="user"/>
             </div>
             <div>
