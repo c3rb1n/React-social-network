@@ -12,8 +12,8 @@ export const authAPI = {
     me() {
         return axiosInstance.get("auth/me").then(response => response.data);
     },
-    login(email, password, rememberMe = false) {
-        return axiosInstance.post("auth/login", {email, password, rememberMe}).then(response => response.data);
+    login(email, password, rememberMe = false, captcha = null) {
+        return axiosInstance.post("auth/login", {email, password, rememberMe, captcha}).then(response => response.data);
     },
     logout() {
         return axiosInstance.delete("auth/login").then(response => response.data);
@@ -54,5 +54,11 @@ export const usersAPI = {
     },
     unfollow(userId) {
         return axiosInstance.delete(`follow/${userId}`).then(response => response.data);
+    }
+};
+
+export const securityAPI = {
+    getCaptchaUrl() {
+        return axiosInstance.get("security/get-captcha-url").then(response => response.data);
     }
 };

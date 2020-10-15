@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 import userPhoto from "../../assets/images/user.png";
 
 const Header = props => {
-
     return (
         <header className={classes.header}>
             <img
@@ -12,7 +11,7 @@ const Header = props => {
                 alt="logo"/>
             <div className={classes.loginBlock}>
                 {props.isAuth ?
-                    <NavLink to={"/profile"}>
+                    <NavLink to={"/login"}>
                         <img src={props.profile.photos.small ?
                             props.profile.photos.small :
                             userPhoto} alt="avatar"/>
