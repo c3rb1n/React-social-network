@@ -10,7 +10,7 @@ const Header = props => {
         <header className={classes.header}>
             <div className={classes.wrapper}>
                 <HeaderLogo/>
-                {props.isAuth && <AudioPlayer loop src={song} volume={0.1} layout="horizontal-reverse"
+                {props.isAuth && <AudioPlayer autoPlay loop src={song} volume={0.1} layout="horizontal-reverse"
                                               customProgressBarSection={[]} showJumpControls={false}
                                               customControlsSection={
                     [
