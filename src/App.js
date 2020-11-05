@@ -1,7 +1,7 @@
 import React from "react";
 import "react-h5-audio-player/src/styles.scss";
 import "./App.scss";
-import {withRouter, Route, BrowserRouter, Switch, Redirect} from "react-router-dom";
+import {withRouter, Route, Switch, Redirect, HashRouter} from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -78,11 +78,11 @@ const AppContainer = compose(
 
 const ReactSocialNetworkApp = props => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

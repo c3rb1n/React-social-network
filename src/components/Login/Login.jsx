@@ -18,8 +18,8 @@ let LoginForm = ({handleSubmit, error, captchaUrl}) => {
                 </div> :
                 <div className={classes.login__testingData}>
                     <span>Test account data</span>
-                    <span>Email: ilya_prudnikov97@mail.ru</span>
-                    <span>Password: 123123</span>
+                    <span>Email: free@samuraijs.com</span>
+                    <span>Password: free</span>
                 </div>
             }
             <div className={classes.login__email}>
