@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "44fbbbb29bc6d4a52b63d978f980f673",
+    "revision": "b68a9c526b087eb43d09212897a9d680",
     "url": "//c3rb1n.github.io/React-social-network/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "//c3rb1n.github.io/React-social-network/static/css/4.ca00cf11.chunk.css"
   },
   {
-    "revision": "1f3d93c5967b7a9f4c58",
+    "revision": "07e2df8e3312c4222068",
     "url": "//c3rb1n.github.io/React-social-network/static/css/main.0e98c725.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "//c3rb1n.github.io/React-social-network/static/js/4.6b4f6617.chunk.js"
   },
   {
-    "revision": "1f3d93c5967b7a9f4c58",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/main.2adfdc66.chunk.js"
+    "revision": "07e2df8e3312c4222068",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/main.36e41d6b.chunk.js"
   },
   {
     "revision": "40f81ecbf3ec552cea1c",
