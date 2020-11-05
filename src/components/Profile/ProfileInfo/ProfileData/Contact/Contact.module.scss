@@ -1,0 +1,24 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.contact {
+    display: flex;
+    margin: 0 0 10px 20px;
+    &__title {
+        width: 30%;
+    }
+    &__link {
+        text-decoration: none;
+        color: $mainColor;
+        text-shadow: none;
+        &:hover {
+            @include second-text-shadow-template($mainColor);
+            transition: 0.3s;
+        }
+    }
+    &__alternateText {
+        font-style: italic;
+        color: $mainColor;
+        text-shadow: none;
+    }
+}

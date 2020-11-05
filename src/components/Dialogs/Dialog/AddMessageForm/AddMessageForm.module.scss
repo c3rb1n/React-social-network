@@ -1,0 +1,54 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &__textarea {
+        @include main-text-shadow-template($secondColor);
+        @include main-box-shadow-template(10, 20, $mainColor, true);
+        width: 99%;
+        resize: none;
+        background-color: transparent;
+        color: $secondColor;
+        border: 2px solid $accentNeonColor;
+        padding: 10px;
+        outline: none;
+        &::-webkit-scrollbar {
+            width: 6px;
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $secondColor;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: $secondColorDark;
+        }
+        &::placeholder {
+            @include main-text-shadow-template($secondColor);
+            color: $secondColor;
+        }
+    }
+    &__btn {
+        align-self: flex-end;
+        background-color: $bgSecondColor;
+        color: $secondColor;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin: 20px -19px 0 0;
+        &:hover {
+            @include main-box-shadow-template(10, 20, $secondColor, true);
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: $secondColor;
+            color: $bgSecondColor;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.upload {
+    @include icon-template(15px, 15px, $alternateMainColorDark);
+    margin-right: 10px;
+}

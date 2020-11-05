@@ -1,0 +1,26 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.friend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70px;
+    text-decoration: none;
+    font-size: 14px;
+    color: $mainColor;
+    margin-bottom: 10px;
+    &__avatar {
+        @include item-size-template(56px, 56px);
+        margin-bottom: 5px;
+        border-radius: 50%;
+    }
+    &__firstName {
+        &:hover {
+            @include second-text-shadow-template($secondColor);
+            transition: 0.3s;
+            color: $secondColor;
+        }
+    }
+}

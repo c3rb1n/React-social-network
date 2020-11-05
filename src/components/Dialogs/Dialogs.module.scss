@@ -1,0 +1,6 @@
+@import "src/common_styles/mixins";
+
+.dialogs {
+    @include component-main-bg-template();
+    min-height: 1050px;
+}

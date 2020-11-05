@@ -1,0 +1,21 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.users {
+    @include component-main-bg-template();
+    min-height: 1050px;
+    padding: 50px;
+    &__heading {
+        @include main-text-shadow-template($secondColor);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 36px;
+        color: $accentNeonColor;
+        margin-bottom: 30px;
+        & span {
+            font-size: 20px;
+            margin-top: 6px;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.clock {
+    @include main-text-shadow-template($secondColor);
+    position: fixed;
+    max-width: 300px;
+    font: {
+        family: "Montserrat";
+        size: 37px;
+    }
+    color: $secondColor;
+}

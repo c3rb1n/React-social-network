@@ -1,0 +1,59 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.popup {
+    min-width: 150px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $mainBgColor-1;
+    box-shadow: 0 0 20px 2px $alternateMainColor;
+    border: 2px solid $alternateMainColor;
+    border-radius: 3px;
+    margin: 30px 0 0 -167px;
+    &__userInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    &__avatar {
+        width: 40px;
+        border-radius: 100%;
+        margin: 0 8px;
+    }
+    &__fullName {
+        color: $alternateMainColor;
+        @include main-text-shadow-template($alternateMainColor);
+        margin-right: 8px;
+    }
+    &__logout {
+        background-color: transparent;
+        color: $secondColor;
+        cursor: pointer;
+        outline: none;
+        padding: 5px 0 8px 0;
+        border: none;
+        border-top: 2px solid $alternateMainColor;
+        margin: -1px;
+        &:hover {
+            @include main-text-shadow-template($secondColor);
+            transition: 0.3s;
+            background-color: $alternateMainColor;
+        }
+    }
+}
+
+.triangle {
+    @include item-size-template (15px, 15px);
+    z-index: 2;
+    position: absolute;
+    background-color: $alternateMainColor;
+    box-shadow: 0 0 20px 2px $alternateMainColor;
+    transform: rotate(45deg);
+    border: 2px solid $alternateMainColor;
+    margin: 23px 0 0 -41px;
+}

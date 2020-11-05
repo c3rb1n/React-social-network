@@ -1,0 +1,34 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.post {
+    @include component-main-bg-template();
+    margin-bottom: 20px;
+    &__user {
+        @include second-text-shadow-template($mainColor);
+        display: flex;
+        align-items: center;
+        color: $mainColor;
+        margin: 15px;
+    }
+    &__avatar {
+        @include item-size-template(50px, 50px);
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    &__text {
+        @include second-text-shadow-template($secondColor);
+        word-break: break-all;
+        color: $secondColor;
+        margin: 0 15px;
+    }
+    &__like {
+        @include second-text-shadow-template($secondColor);
+        display: flex;
+        color: $secondColor;
+        margin: 10px 0 5px 15px;
+    }
+    &__likesCount {
+        margin-top: 3px;
+    }
+}

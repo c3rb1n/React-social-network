@@ -1,0 +1,30 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.pageNotFound {
+    @include item-size-template (100%, 100vh);
+    @include main-text-shadow-template($secondColor);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 56px;
+    text-align: center;
+    background-color: $mainBgColor-08;
+    color: $accentNeonColor;
+    &__error {
+        @include main-box-shadow-template(40, 50, $rejectColor, true);
+        padding: 35px;
+        border: 10px solid $accentNeonColor;
+        border-radius: 5px;
+    }
+    &__404 {
+        @include main-text-shadow-template($rejectColor);
+        display: flex;
+        flex-direction: column;
+        color: $accentNeonColor;
+        margin: 25px 0 15px 0;
+    }
+}

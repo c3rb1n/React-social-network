@@ -7,11 +7,14 @@ import {
     getStatus,
     updateStatus,
     savePhoto,
-    saveProfile
+    saveProfile,
+    like,
+    unlike,
 } from "../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import Preloader from "../common/Preloader/Preloader";
 
 class ProfileContainer extends React.Component {
     refreshProfile = () => {
@@ -41,6 +44,9 @@ class ProfileContainer extends React.Component {
     }
 
     render = () => {
+        if (!this.props.profile) {
+            return <Preloader/>
+        }
         return (
             <Profile isOwner={!this.props.match.params.userId}
                      savePhoto={this.props.savePhoto}
@@ -52,16 +58,19 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         profile: state.profilePage.profile,
-        posts: state.profilePage.posts,
         status: state.profilePage.status,
+        friends: state.profilePage.friends,
+        isAuth: state.auth.isAuth,
         authorizedUserId: state.auth.userId,
-        isAuth: state.auth.isAuth
+        posts: state.profilePage.posts
     };
 };
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, addPost, getStatus, updateStatus, savePhoto, saveProfile}),
+    connect(mapStateToProps, {getUserProfile, addPost, getStatus,
+                              updateStatus, savePhoto, saveProfile,
+                              like, unlike}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);

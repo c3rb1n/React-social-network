@@ -1,0 +1,13 @@
+@import "src/common_styles/mixins";
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    &__img {
+        @include item-size-template(80px, 80px);
+        border-radius: 50%;
+    }
+}

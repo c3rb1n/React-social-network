@@ -1,48 +1,78 @@
-import React from "react";
+import React, {useState} from "react";
+import classes from "./Login.module.scss";
 import {reduxForm} from "redux-form";
 import {Input, createField} from "../common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
+import {required} from "../../utils/validators/validators";
 import {login} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
-import classes from "../common/FormsControls/FormsControls.module.css";
-
-
-const maxLength20 = maxLengthCreator(50);
 
 let LoginForm = ({handleSubmit, error, captchaUrl}) => {
+    const [checkbox, toggleCheckbox] = useState(false);
+
     return (
-        <form onSubmit={handleSubmit}>
-            {createField(Input, "email", "Email", "email", [required, maxLength20])}
-            {createField(Input, "password", "Password", "password", [required, maxLength20])}
-            {createField(Input, "checkbox", null, "rememberMe", [], {}, "Remember Me")}
-            {captchaUrl && <img src={captchaUrl} alt="captcha"/>}
-            {captchaUrl && createField(Input, "text", "", "captcha", [required])}
-            {error && <div className={classes.formSummaryError}>
-                {error}
-            </div>}
-            <div>
-                <button>Login</button>
+        <form onSubmit={handleSubmit} className={classes.login__form}>
+            {error ?
+                <div className={classes.login__formSummaryError}>
+                    {error}
+                </div> :
+                <div className={classes.login__testingData}>
+                    <span>Test account data</span>
+                    <span>Email: ilya_prudnikov97@mail.ru</span>
+                    <span>Password: 123123</span>
+                </div>
+            }
+            <div className={classes.login__email}>
+                {createField(Input, "email", "Enter email...", "email", [required])}
             </div>
+            <div className={classes.login__password}>
+                {createField(Input, "password", "Enter password...", "password", [required])}
+            </div>
+            <div className={classes.login__checkbox}>
+                {checkbox ?
+                    <label className={classes.login_labelTrue}
+                           htmlFor="login-checkbox"
+                           onClick={() => toggleCheckbox(!checkbox)}>✔</label> :
+                    <label className={classes.login_labelFalse}
+                           htmlFor="login-checkbox"
+                           onClick={() => toggleCheckbox(!checkbox)}/>}
+                <div>
+                    {createField(Input,
+                        "checkbox",
+                        null,
+                        "rememberMe",
+                        [],
+                        {id: "login-checkbox"})}
+                </div>
+                <span>Remember me</span>
+            </div>
+            <div className={classes.login__captcha}>
+                {captchaUrl && <img src={captchaUrl} alt="captcha"/>}
+                {captchaUrl && createField(Input, "text", "Enter captcha...", "captcha", [required])}
+            </div>
+            <button className={classes.login__login}>LOGIN</button>
         </form>
     );
 };
 
 LoginForm = reduxForm({form: "login"})(LoginForm);
 
-const Login = props => {
+const Login = ({login, isAuth, captchaUrl}) => {
     const onSubmit = values => {
-        props.login(values.email, values.password, values.rememberMe, values.captcha);
+        login(values.email, values.password, values.rememberMe, values.captcha);
+        values.captcha = "";
     }
 
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to="/profile"/>
     }
 
     return (
-        <div>
-            <h1>Login</h1>
-            <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+        <div className={classes.loginWrapper}>
+            <div className={classes.login}>
+                <h1 className={classes.login__header}>Login</h1>
+                <LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+            </div>
         </div>
     );
 };

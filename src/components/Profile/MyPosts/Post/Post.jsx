@@ -1,18 +1,23 @@
 import React from "react";
-import classes from "./Post.module.css";
+import classes from "./Post.module.scss";
+import userPhoto from "../../../../assets/images/user.svg";
+import FilledHeart from "../../../common/Icons/FilledHeart/FilledHeart";
+import EmptyHeart from "../../../common/Icons/EmptyHeart/EmptyHeart";
 
-const Post = props => {
+const Post = ({id, avatar, fullName, message, liked, likesCount, like, unlike}) => {
+
     return (
-        <div className={classes.item}>
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoWjd80wBWItgh9qjgAjpbtq3XEdgmBwBAMmFdNzMYG1Rq2nUe&usqp=CAU"
-                alt="user"/>
-            {props.message}
-            <div className={classes.like}>
-                <img
-                    src="https://www.freeiconspng.com/thumbs/heart-png/heart-png-8.png"
-                    alt="like"/>
-                {props.likesCount}
+        <div className={classes.post}>
+            <div className={classes.post__user}>
+                <img className={classes.post__avatar}
+                     src={avatar !== null ? avatar : userPhoto}
+                     alt="avatar"/>
+                <span>{fullName}</span>
+            </div>
+            <div className={classes.post__text}>{message}</div>
+            <div className={classes.post__like}>
+                {liked ? <FilledHeart unlike={unlike} id={id}/> : <EmptyHeart like={like} id={id}/>}
+                <span className={classes.post__likesCount}>{likesCount}</span>
             </div>
         </div>
     );

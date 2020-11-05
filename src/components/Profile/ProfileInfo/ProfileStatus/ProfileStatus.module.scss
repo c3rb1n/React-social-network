@@ -1,0 +1,47 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.profileStatus {
+    margin: 3px 0 50px 0;
+    &__myStatus {
+        @include text-template($mainColor);
+        text-shadow: none;
+        &:hover {
+            @include second-text-shadow-template($mainColor);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+    }
+    &__editMode {
+        margin: -1px 0 -23px -2px;
+        display: flex;
+        flex-direction: column;
+    }
+    &__input {
+        @include text-template($mainColor);
+        @include second-text-shadow-template($mainColor);
+        background-color: $bgSecondHoverColor;
+        outline: none;
+        border: none;
+    }
+    &__btn {
+        width: 15%;
+        color: $secondColor;
+        margin-top: 10px;
+        background-color: $bgSecondHoverColor;
+        outline: none;
+        padding: 5px 0;
+        border: none;
+        border-radius: 5px;
+        &:hover {
+            @include second-text-shadow-template($secondColor);
+            transition: 0.3s;
+            cursor: pointer;
+            background-color: $bgSecondColor;
+        }
+    }
+    &__otherUserStatus {
+        @include text-template($mainColor);
+        text-shadow: none;
+    }
+}

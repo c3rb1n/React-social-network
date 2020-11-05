@@ -1,0 +1,27 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.pages {
+    text-align: center;
+    &__btn {
+        width: 40px;
+        font-size: 12px;
+        margin-right: 10px;
+        background-color: transparent;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: $secondColor;
+        outline: none;
+        padding: 3px 0;
+        border: 2px solid $secondColor;
+        border-radius: 3px;
+        &:hover {
+            @include paginator-template();
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        &_selected {
+            @include paginator-template();
+        }
+    }
+}

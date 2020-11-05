@@ -1,0 +1,13 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.arrow {
+    @include item-size-template(13px, 13px);
+    margin-top: 3px;
+    &_on {
+        fill: $alternateMainColor;
+    }
+    &_off {
+        fill: $alternateMainColorDark;
+    }
+}

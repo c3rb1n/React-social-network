@@ -1,0 +1,107 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.profileDataForm {
+    @include second-text-shadow-template($secondColor);
+    position: relative;
+    color: $secondColor;
+    margin: 17px 20px;
+    &__fullName, &__lookingForAJob, &__contact {
+        display: flex;
+    }
+    &__title {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+    &__input input {
+        @include second-box-shadow-template($mainColor);
+        background-color: transparent;
+        color: $secondColor;
+        outline: none;
+        padding: 3px;
+        border: 2px solid $accentNeonColor;
+        &::placeholder {
+            font-style: italic;
+            color: $secondColor;
+        }
+    }
+    &__lookingForAJob_labelTrue, &__lookingForAJob_labelFalse {
+        @include item-size-template(17px, 17px);
+        @include second-box-shadow-template($mainColor);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        border: 2px solid $accentNeonColor;
+        &:hover {
+            @include second-box-shadow-template($mainColorDark);
+            transition: 0.3s;
+            cursor: pointer;
+            color: $secondColorDark;
+        }
+    }
+    &__checkbox {
+        display: none;
+    }
+    &__technicalSkills {
+        margin-bottom: 20px;
+    }
+    &__textarea textarea {
+        @include main-box-shadow-template(10, 20, $mainColor, true);
+        width: calc(100% - 20px);
+        min-height: 70px;
+        color: $secondColor;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        padding: 7px;
+        border: 2px solid $accentNeonColor;
+        margin-top: 20px;
+        &::placeholder {
+            font-style: italic;
+            color: $secondColor;
+        }
+    }
+    &__softSkills {
+        margin-bottom: 20px;
+    }
+    &__contacts {
+        margin-bottom: 10px;
+    }
+    &__contact {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    &__submit {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__btn {
+        width: 15%;
+        color: $secondColor;
+        background-color: $bgSecondHoverColor;
+        outline: none;
+        padding: 5px 0;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        &:hover {
+            @include second-text-shadow-template($secondColor);
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: $bgSecondColor;
+        }
+    }
+}
+
+.formSummaryError {
+    @include second-text-shadow-template($rejectColor);
+    @include main-box-shadow-template(5, 10, $rejectColor, true);
+    position: absolute;
+    bottom: -4px;
+    width: 80%;
+    text-align: center;
+    color: $rejectColor;
+    padding: 7px 0;
+    border: 2px solid $accentNeonColor;
+}

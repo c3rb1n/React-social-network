@@ -1,0 +1,59 @@
+@import "common_styles/variables";
+@import "common_styles/mixins";
+
+.app-wrapper {
+    display: grid;
+    max-width: 950px;
+    margin: 10px auto;
+    grid-template-areas: "navbar content";
+    grid-template-columns: 2fr 10fr;
+    gap: 10px;
+}
+
+.content {
+    grid-area: content;
+}
+
+.clock-wrapper {
+    position: absolute;
+    top: 85%;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+}
+
+.rhap_container,
+.rhap_play-pause-button,
+.rhap_volume-container,
+.rhap_volume-button,
+.rhap_volume-bar-area {
+    outline: none;
+}
+
+.rhap_container {
+    @include item-size-template (700px, 40px);
+    background-color: transparent;
+    padding: 0;
+    margin: 11px -300px 0 0;
+}
+
+.rhap_main-controls-button {
+    color: $alternateMainColor;
+    font-size: 35px;
+}
+
+.rhap_volume-indicator {
+    background-color: $secondColor;
+}
+
+.rhap_volume-controls {
+    margin-top: -2px;
+}
+
+.rhap_volume-button {
+    color: $alternateMainColor;
+}
+
+.rhap_volume-bar {
+    background-color: $alternateMainColor;
+}

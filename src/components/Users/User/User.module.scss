@@ -1,0 +1,44 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    &:first-child {
+        margin-top: 36px;
+    }
+    &__userData {
+        display: flex;
+        align-items: center;
+    }
+    &__avatar {
+        @include item-size-template(60px, 60px);
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+    &__userInfo {
+        display: flex;
+        flex-direction: column;
+    }
+    &__name {
+        font-size: 18px;
+        text-decoration: none;
+        color: $mainColor;
+        margin-bottom: 6px;
+        &:hover {
+            @include main-text-shadow-template($secondColor);
+            transition: 0.3s;
+            color: $secondColor;
+        }
+    }
+    &__status {
+        @include text-template($secondColorDark);
+    }
+    &__unfollow {
+        @include follow-unfollow-template($mainColor);
+    }
+    &__follow {
+        @include follow-unfollow-template($secondColor);
+    }
+}

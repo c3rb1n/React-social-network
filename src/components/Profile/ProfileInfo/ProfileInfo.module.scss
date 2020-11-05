@@ -1,0 +1,6 @@
+@import "src/common_styles/mixins";
+
+.profileInfo {
+    @include component-main-bg-template();
+    grid-area: profileInfo;
+}

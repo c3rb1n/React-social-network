@@ -1,55 +1,47 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import classes from "./ProfileStatus.module.scss";
 
-class ProfileStatus extends React.Component {
-    state = {
-        editMode: false,
-        status: this.props.status
+const ProfileStatus = props => {
+    let [editMode, setEditMode] = useState(false);
+    let [status, setStatus] = useState(props.status);
+
+    useEffect(() => {
+        setStatus(props.status);
+    }, [props.status]);
+
+    const activateEditMode = () => {
+        setEditMode(true);
     };
 
-    activateEditMode = () => {
-        this.setState({
-            editMode: true
-        });
+    const onSaveStatus = () => {
+        setEditMode(false);
+        props.updateStatus(status);
     };
 
-    deactivateEditMode = () => {
-        this.setState({
-            editMode: false
-        });
-        this.props.updateStatus(this.state.status);
+    const onStatusChange = event => {
+        setStatus(event.currentTarget.value);
     };
 
-    onStatusChange = event => {
-        this.setState({
-            status: event.currentTarget.value
-        });
-    };
-
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status
-            });
-        }
-    };
-
-    render = () => {
-        return (
-            <div>
-                {this.state.editMode ?
-                    <div><input onChange={this.onStatusChange}
-                                autoFocus={true}
-                                onBlur={this.deactivateEditMode}
-                                value={this.state.status}/></div> :
-                    <div>
-                        <span onDoubleClick={this.activateEditMode}>
-                            {this.props.status || "Введите статус..."}
-                        </span>
-                    </div>
-                }
-            </div>
-        );
-    }
+    return (
+        <div className={classes.profileStatus}>
+            {props.isOwner ? !editMode ?
+                <span className={classes.profileStatus__myStatus} onClick={activateEditMode}>
+                        {props.status || "Add a status..."}
+                </span> :
+                <div className={classes.profileStatus__editMode}>
+                    <input className={classes.profileStatus__input}
+                           onChange={onStatusChange}
+                           value={status}/>
+                    <button className={classes.profileStatus__btn} onClick={onSaveStatus}>
+                        Save
+                    </button>
+                </div> :
+                <span className={classes.profileStatus__otherUserStatus}>
+                    {props.status || "Add a status..."}
+                </span>
+            }
+        </div>
+    );
 };
 
 export default ProfileStatus;

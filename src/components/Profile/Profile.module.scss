@@ -1,0 +1,13 @@
+.profile {
+    display: grid;
+    grid-template-areas:
+        "avatarBlock profileInfo"
+        "friendsBlock profileInfo"
+        "addPostPanel addPostPanel"
+        "myPosts myPosts";
+    grid-template-columns: 270px;
+    grid-template-rows: 348px minmax(233px, max-content) minmax(min-content, max-content);
+    gap: 20px;
+    position: relative;
+    min-height: 1050px;
+}

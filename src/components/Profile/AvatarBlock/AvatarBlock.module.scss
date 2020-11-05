@@ -1,0 +1,65 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.avatarBlock {
+    @include component-main-bg-template();
+    grid-area: avatarBlock;
+    position: relative;
+    height: 304px;
+    padding: 20px;
+    &__avatar {
+        @include item-size-template(225px, 250px);
+    }
+    &__labelWrapper {
+        @include item-size-template(225px, 250px);
+        position: absolute;
+        top: 20px;
+        opacity: 0;
+        background-color: $mainBgColor-04;
+        &:hover {
+            transition: 0.3s;
+            opacity: 1;
+        }
+    }
+    &__label {
+        @include item-size-template(225px, 30px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        background-color: $mainBgColor-08;
+        color: $secondColor;
+        &:hover {
+            @include second-text-shadow-template($secondColor);
+            transition: 0.3s;
+            cursor: pointer;
+            svg {
+                transition: 0.3s;
+                fill: $alternateMainColor;
+            }
+        }
+    }
+    &__uploadText {
+        font-size: 14px;
+        margin-top: -3px;
+    }
+    &__input {
+        display: none;
+    }
+    &__button {
+        @include item-size-template(100%, 30px);
+        background-color: $mainBgColor-1;
+        color: $mainColor;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        &:hover {
+            @include second-text-shadow-template($mainColor);
+            transition: 0.3s;
+            cursor: pointer;
+            background-color: $bgSecondColor;
+        }
+    }
+}

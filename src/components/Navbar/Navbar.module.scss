@@ -1,0 +1,9 @@
+@import "src/common_styles/mixins";
+
+.navbar {
+    @include component-main-bg-template ();
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    max-height: 230px;
+}

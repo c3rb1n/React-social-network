@@ -1,26 +1,28 @@
 import React from "react";
-import classes from "./Header.module.css";
-import {NavLink} from "react-router-dom";
-import userPhoto from "../../assets/images/user.png";
+import classes from "./Header.module.scss";
+import song from "../../assets/music/Three Chain Links - Hot Nights in Los Angeles.mp3";
+import AudioPlayer, {RHAP_UI} from "react-h5-audio-player";
+import LoginBlock from "./LoginBlock/LoginBlock";
+import HeaderLogo from "../common/Icons/HeaderLogo/HeaderLogo";
 
 const Header = props => {
     return (
         <header className={classes.header}>
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
-                alt="logo"/>
-            <div className={classes.loginBlock}>
-                {props.isAuth ?
-                    <NavLink to={"/login"}>
-                        <img src={props.profile.photos.small ?
-                            props.profile.photos.small :
-                            userPhoto} alt="avatar"/>
-                        <span className={classes.login}>
-                            {props.login}
-                        </span>
-                        <button onClick={props.logout}>Log out</button>
-                    </NavLink> :
-                    <NavLink to="/login">Login</NavLink>}
+            <div className={classes.wrapper}>
+                <HeaderLogo/>
+                {props.isAuth && <AudioPlayer loop src={song} volume={0.1} layout="horizontal-reverse"
+                                              customProgressBarSection={[]} showJumpControls={false}
+                                              customControlsSection={
+                    [
+                        RHAP_UI.MAIN_CONTROLS,
+                        <div className={classes.audioPlayer__songName}>
+                            Three Chain Links - Hot Nights in Los Angeles
+                        </div>,
+                        RHAP_UI.VOLUME_CONTROLS
+                    ]}/>}
+                {props.isAuth && <LoginBlock fullName={props.profile.fullName}
+                                             photo={props.profile.photos.small}
+                                             logout={props.logout}/>}
             </div>
         </header>
     );

@@ -1,46 +1,31 @@
 import React from "react";
-import classes from "./MyPosts.module.css";
+import classes from "./MyPosts.module.scss";
 import Post from "./Post/Post";
-import {Field, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../../utils/validators/validators";
-import {Textarea} from "../../common/FormsControls/FormsControls";
+import document from "../../../assets/images/document.svg";
 
-const maxLength10 = maxLengthCreator(10);
-
-let AddNewPostsForm = props => {
+const MyPosts = React.memo(({avatar, fullName, isOwner, posts, like, unlike}) => {
+    let postsElements = posts.map((p, index) => <Post key={index}
+                                                      id={index}
+                                                      avatar={avatar}
+                                                      fullName={fullName}
+                                                      message={p.message}
+                                                      liked={p.liked}
+                                                      likesCount={p.likesCount}
+                                                      like={like}
+                                                      unlike={unlike}/>);
     return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field name="newPostText"
-                       component={Textarea}
-                       validate={[required, maxLength10]}
-                       placeholder="Post message"/>
-            </div>
-            <div>
-                <button>Add post</button>
-            </div>
-        </form>
-    );
-};
-
-AddNewPostsForm = reduxForm({form: "profileAddNewPostForm"})(AddNewPostsForm);
-
-const MyPosts = React.memo(props => {
-    let postsElements = props.posts.map(p => <Post key={p.id}
-                                                   message={p.message}
-                                                   likesCount={p.likesCount}/>);
-
-    let onAddPost = values => {
-        props.addPost(values.newPostText);
-
-    };
-
-    return (
-        <div className={classes.postsBlock}>
-            <h3>My posts</h3>
-            <AddNewPostsForm onSubmit={onAddPost}/>
+        <div className={classes.myPosts}>
             <div className={classes.posts}>
-                {postsElements}
+                {isOwner && posts.length !== 0 ? postsElements :
+                    <div className={classes.empty}>
+                        <span className={classes.empty__heading}>
+                            No posts yet
+                        </span>
+                        <div className={classes.empty__content}>
+                            <img className={classes.empty__img} src={document} alt="document"/>
+                            <span>There are no posts here yet</span>
+                        </div>
+                    </div>}
             </div>
         </div>
     );

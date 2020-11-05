@@ -1,0 +1,54 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.addPostPanel {
+    @include component-main-bg-template();
+    grid-area: addPostPanel;
+    &__top {
+        display: flex;
+        margin: 12px 0 5px 20px;
+    }
+    &__avatar {
+        @include item-size-template(30px, 30px);
+        flex-basis: 30px;
+        border-radius: 50%;
+    }
+    &__field {
+        @include second-text-shadow-template($secondColor);
+        display: flex;
+        width: 700px;
+        background-color: transparent;
+        color: $secondColor;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+        border: none;
+        margin: 5px 10px -1px 10px;
+        &::placeholder {
+            @include second-text-shadow-template($secondColor);
+            color: $secondColor;
+        }
+        &_focus {
+            min-height: 100px;
+        }
+    }
+    &__bottom {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__btn {
+        background-color: $bgSecondColor;
+        color: $mainColor;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin: 10px 20px 12px 0;
+        &:hover {
+            @include second-text-shadow-template($mainColor);
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: $bgSecondHoverColor;
+        }
+    }
+}

@@ -6,16 +6,25 @@ const ADD_POST = "ADD_POST";
 const SET_STATUS = "SET_STATUS";
 const DELETE_POST = "DELETE_POST";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
+const LIKE = "LIKE";
+const UNLIKE = "UNLIKE";
 
 let initialState = {
     profile: null,
     status: "",
-    posts: [
-        {id: 1, message: "Hi, how are you?", likesCount: 15},
-        {id: 2, message: "It's my first post.", likesCount: 20},
-        {id: 3, message: "Hi!", likesCount: 45},
-        {id: 4, message: "Hello!", likesCount: 8}
-    ]
+    friends: [
+        "Tim",
+        "Robert",
+        "Brendan",
+        "Donald",
+        "Bjarne",
+        "Guido",
+        "Mark",
+        "Linus",
+        "Andrew",
+        "Bill"
+    ],
+    posts: []
 };
 
 const profilePageReducer = (state = initialState, action) => {
@@ -34,7 +43,7 @@ const profilePageReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                posts: [...state.posts, newPost]
+                posts: [newPost, ...state.posts]
             };
         case SET_STATUS:
             return {
@@ -44,8 +53,8 @@ const profilePageReducer = (state = initialState, action) => {
         case DELETE_POST:
             return {
                 ...state,
-                posts: state.posts.filter(p => p.id !== action.postId)
-            }
+                posts: state.posts.filter((p, index) => index !== action.postId)
+            };
         case SAVE_PHOTO_SUCCESS:
             return {
                 ...state,
@@ -53,7 +62,33 @@ const profilePageReducer = (state = initialState, action) => {
                     ...state.profile,
                     photos: action.photos
                 }
-            }
+            };
+        case LIKE:
+            return {
+                ...state,
+                posts: state.posts.map((p, index) => {
+                    if (index === action.postId) {
+                        p.liked = true;
+                        p.likesCount++;
+                        return p;
+                    } else {
+                        return p;
+                    }
+                })
+            };
+        case UNLIKE:
+            return {
+                ...state,
+                posts: state.posts.map((p, index) => {
+                    if (index === action.postId) {
+                        p.liked = false;
+                        p.likesCount--;
+                        return p;
+                    } else {
+                        return p;
+                    }
+                })
+            };
         default:
             return state;
     }
@@ -78,6 +113,14 @@ export const deletePost = postId => ({
 export const savePhotoSuccess = photos => ({
     type: SAVE_PHOTO_SUCCESS,
     photos
+});
+export const like = postId => ({
+    type: LIKE,
+    postId
+});
+export const unlike = postId => ({
+    type: UNLIKE,
+    postId
 });
 
 export const getUserProfile = userId => async dispatch => {
@@ -111,8 +154,8 @@ export const saveProfile = profile => async (dispatch, getState) => {
     if (data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
-        dispatch(stopSubmit("editProfile", {_error: data.messages[0]}));
-        return Promise.reject(data.messages[0]);
+        dispatch(stopSubmit("editProfile", {_error: data.messages[0].slice(0, 18)}));
+        return Promise.reject(data.messages[0].slice(0, 18));
     }
 };
 

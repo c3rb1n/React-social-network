@@ -1,0 +1,33 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.friends {
+    @include component-main-bg-template();
+    grid-area: friendsBlock;
+    position: absolute;
+    top: -6px;
+    display: flex;
+    flex-direction: column;
+    color: $secondColor;
+    padding: 20px 20px 10px 20px;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        width: 26%;
+        font-size: 14px;
+        margin-bottom: 15px;
+        & span:first-child {
+            margin-right: 5px;
+        }
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__text {
+        @include second-text-shadow-template($secondColor);
+        color: $secondColor;
+        margin: 66px 29.7px 90px 29.7px;
+    }
+}

@@ -1,7 +1,8 @@
-import React, {useState} from "react";
-import classes from "./Paginator.module.css";
+import React from "react";
+import classes from "./Paginator.module.scss";
 
-const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged,
+                       portionSize = 10, portionNumber, setPortionNumber}) => {
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
     let pages = [];
 
@@ -10,19 +11,22 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
     }
 
     let portionCount = Math.ceil(pagesCount / portionSize);
-    let [portionNumber, setPortionNumber] = useState(1);
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
     return (
         <div className={classes.pages}>
-            {portionNumber > 1 && <button onClick={() => setPortionNumber(portionNumber - 1)}>PREV</button>}
+            {portionNumber > 1 &&
+                <button className={classes.pages__btn}
+                        onClick={() => setPortionNumber(portionNumber - 1)}>{"<"}</button>}
             {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber).map(p => {
-                return <button key={p}
-                               className={currentPage === p && classes.selectedPage}
+                return <button className={`${classes.pages__btn} ${currentPage === p && classes.pages__btn_selected}`}
+                               key={p}
                                onClick={() => onPageChanged(p)}>{p}</button>
             })}
-            {portionCount > portionNumber && <button onClick={() => setPortionNumber(portionNumber + 1)}>NEXT</button>}
+            {portionCount > portionNumber &&
+                <button className={classes.pages__btn}
+                        onClick={() => setPortionNumber(portionNumber + 1)}>{">"}</button>}
         </div>
     );
 };

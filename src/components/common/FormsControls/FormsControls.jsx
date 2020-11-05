@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./FormsControls.module.css";
+import classes from "./FormsControls.module.scss";
 import {Field} from "redux-form";
 
 const FormControl = ({input, meta: {touched, error}, children}) => {
@@ -17,9 +17,10 @@ const FormControl = ({input, meta: {touched, error}, children}) => {
 
 export const Textarea = props => {
     const {input, meta, child, ...restProps} = props;
+
     return (
         <FormControl {...props}>
-            <textarea {...input} {...restProps} />
+            <textarea {...input} {...restProps}/>
         </FormControl>
     );
 };
@@ -33,13 +34,13 @@ export const Input = props => {
     );
 };
 
-export const createField = (component, type, placeholder, name, validators, props = {}, text = "") => (
+export const createField = (component, type, placeholder, name, validators, props = {}) => (
     <div>
         <Field component={component}
                type={type}
                placeholder={placeholder}
                name={name}
                validate={validators}
-               {...props}/> {text}
+               {...props}/>
     </div>
 );

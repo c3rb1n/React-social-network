@@ -1,0 +1,26 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.header {
+    @include component-main-bg-template();
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-size: 14px;
+    color: $secondColor;
+    border: none;
+    border-bottom: 2px solid $borderMainColor;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 945px;
+    margin: 0 auto;
+}
+
+.audioPlayer__songName {
+    @include main-text-shadow-template($secondColor);
+    margin: -4px 30px 0 10px;
+}

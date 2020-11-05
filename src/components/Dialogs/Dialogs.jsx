@@ -1,63 +1,24 @@
 import React from "react";
-import classes from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import userPhoto from "../../assets/images/user.png";
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
+import classes from "./Dialogs.module.scss";
+import DialogPreview from "./DialogPreview/DialogPreview";
+import Dialog from "./Dialog/Dialog";
 
-const maxLength20 = maxLengthCreator(20);
+const Dialogs = ({match, dialogs, sendMessage}) => {
+    const userId = match.params.userId;
+    const currentDialogData = userId && dialogs.filter((d, index) => index + 1 == userId)[0];
 
-let AddMessageForm = props => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field component={Textarea}
-                       name="newMessageText"
-                       validate={[required, maxLength20]}
-                       placeholder="Enter your message"/>
-            </div>
-            <div>
-                <button>Send message</button>
-            </div>
-        </form>
-    );
-};
-
-AddMessageForm = reduxForm({form: "dialogsAddMessageForm"})(AddMessageForm);
-
-const Dialogs = props => {
-    let dialogsElements = props.dialogs.map(d => <DialogItem key={d.id} id={d.id} name={d.name}/>);
-    let messagesElements = props.messages.map(m => <Message key={m.id} message={m.message}/>);
-
-    const onSendMessage = values => {
-        props.sendMessage(values.newMessageText);
-    }
+    const dialogsElements = dialogs.map((d, index) =>
+        <DialogPreview key={index}
+                       id={index + 1}
+                       name={d.name}
+                       lastMessage={d.messages.length && d.messages[d.messages.length - 1]}/>);
 
     return (
         <div className={classes.dialogs}>
-            <div className={classes.dialogsItems}>
-                {dialogsElements}
-            </div>
-            <div>
-                <div className={classes.title}>
-                    <div>
-                        <img
-                            src={userPhoto}
-                            alt="user"/>
-                    </div>
-                    <div className={classes.user}>
-                        Ilya
-                    </div>
-                </div>
-                <div className={classes.messages}>
-                    <div>
-                        {messagesElements}
-                    </div>
-                    <AddMessageForm onSubmit={onSendMessage}/>
-                </div>
-            </div>
+            {!userId && <div>{dialogsElements}</div>}
+            {userId && <Dialog userId={userId}
+                               currentDialogData={currentDialogData}
+                               sendMessage={sendMessage}/>}
         </div>
     );
 };

@@ -1,27 +1,27 @@
 import React from "react";
-import classes from "./User.module.css";
-import userPhoto from "../../../assets/images/user.png";
+import classes from "./User.module.scss";
+import userPhoto from "../../../assets/images/user.svg";
 import {NavLink} from "react-router-dom";
 
 const User = ({id, photo, followed, name, status, followingInProgress, unfollow, follow}) => {
     return (
-        <div>
-            <div className={classes.userPhoto}>
+        <div className={classes.user}>
+            <div className={classes.user__userData}>
                 <NavLink to={`/profile/${id}`}>
-                    <img src={photo != null ? photo : userPhoto} alt="user"/>
+                    <img className={classes.user__avatar} src={photo != null ? photo : userPhoto} alt="user"/>
                 </NavLink>
+                <div className={classes.user__userInfo}>
+                    <NavLink className={classes.user__name} to={`/profile/${id}`}>{name}</NavLink>
+                    <span className={classes.user__status}>{status}</span>
+                </div>
             </div>
-            <div>
-                {followed ?
-                    <button disabled={followingInProgress.some(i => i === id)}
-                            onClick={() => unfollow(id)}>Unfollow</button> :
-                    <button disabled={followingInProgress.some(i => i === id)}
-                            onClick={() => follow(id)}>Follow</button>}
-            </div>
-            <div>{name}</div>
-            <div>{status}</div>
-            <div>{"props.country"}</div>
-            <div>{"props.city"}</div>
+            {followed ?
+                <button className={classes.user__unfollow}
+                        disabled={followingInProgress.some(i => i === id)}
+                        onClick={() => unfollow(id)}>Unfollow</button> :
+                <button className={classes.user__follow}
+                        disabled={followingInProgress.some(i => i === id)}
+                        onClick={() => follow(id)}>Follow</button>}
         </div>
     );
 };

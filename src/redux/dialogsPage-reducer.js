@@ -1,44 +1,43 @@
 const SEND_MESSAGE = "SEND_MESSAGE";
 
-let initialState = {
+const initialState = {
     dialogs: [
-        {id: 1, name: "Ilya"},
-        {id: 2, name: "Vitaly"},
-        {id: 3, name: "Sergey"},
-        {id: 4, name: "Svyatoslav"},
-        {id: 5, name: "Alexander"},
-        {id: 6, name: "Dmitry"}
-    ],
-    messages: [
-        {id: 1, message: "Hi!"},
-        {id: 2, message: "How are you?"},
-        {id: 3, message: "What are you doing?"},
-        {id: 4, message: "Hello!"},
-        {id: 5, message: "Hello!"},
-        {id: 6, message: "Hello!"},
+        {name: "Tim", messages: ["Hi! Let's take a look at your html tags."]},
+        {name: "Robert", messages: ["Hello, my name is Robert. Do you have a minute to talk about the WWW?"]},
+        {name: "Brendan", messages: ["JavaScript is awesome!"]},
+        {name: "Donald", messages: ["Let's test your knowledge of algorithms."]},
+        {name: "Guido", messages: ["🐍"]},
+        {name: "Mark", messages: ["Oh, hi! Do you like React?"]},
+        {name: "Linus", messages: ["Want to travel all over the world and speak at a bunch of different conferences - just write Linux."]},
+        {name: "Andrew", messages: ["Please tell the guy above that Linux is outdated."]}
     ]
 };
 
 const dialogsPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
-            let newMessage = {
-                id: 7,
-                message: action.newMessageText
-            };
-
             return {
                 ...state,
-                messages: [...state.messages, newMessage]
-            };
+                dialogs: state.dialogs.map((d, index) => {
+                    if (index === action.dialogId) {
+                        return {
+                            ...d,
+                            messages: [...d.messages, action.newMessageText]
+                        }
+                    } else {
+                        return d;
+                    }
+                })
+            }
         default:
             return state;
     }
 };
 
-export const sendMessage = newMessageText => ({
+export const sendMessage = (newMessageText, dialogId) => ({
     type: SEND_MESSAGE,
-    newMessageText
+    newMessageText,
+    dialogId
 });
 
 export default dialogsPageReducer;

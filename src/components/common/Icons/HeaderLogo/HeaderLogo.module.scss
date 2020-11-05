@@ -1,0 +1,11 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.logo {
+    @include icon-template(40px, 40px, $alternateMainColor);
+    margin: 7px 0 5px 0;
+    &:hover {
+        transition: 0.3s;
+        fill: $secondColor;
+    }
+}

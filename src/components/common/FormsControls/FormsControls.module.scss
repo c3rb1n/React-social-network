@@ -1,0 +1,22 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.formControl.error input,
+.formControl.error textarea {
+    @include second-box-shadow-template($rejectColor);
+    display: flex;
+}
+
+.formControl.error span {
+    @include second-text-shadow-template($rejectColor);
+    position: absolute;
+    right: 30px;
+    color: $rejectColor;
+    margin-top: -33px;
+}
+
+.formSummaryError {
+    color: $rejectColor;
+    padding: 5px;
+    border: 3px solid $rejectColor;
+}

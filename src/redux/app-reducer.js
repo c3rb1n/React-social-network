@@ -1,9 +1,12 @@
 import {getAuthUserData} from "./auth-reducer";
 
 const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
+const PAGE_FOUND = "PAGE_FOUND";
+const PAGE_NOT_FOUND = "PAGE_NOT_FOUND";
 
 let initialState = {
-    initialized: false
+    initialized: false,
+    isPageFound: true
 };
 
 const appReducer = (state = initialState, action) => {
@@ -13,7 +16,16 @@ const appReducer = (state = initialState, action) => {
                 ...state,
                 initialized: true
             };
-
+        case PAGE_FOUND:
+            return {
+                ...state,
+                isPageFound: true
+            }
+        case PAGE_NOT_FOUND:
+            return {
+                ...state,
+                isPageFound: false
+            }
         default:
             return state;
     }
@@ -21,6 +33,12 @@ const appReducer = (state = initialState, action) => {
 
 export const initializedSuccess = () => ({
     type: INITIALIZED_SUCCESS
+});
+export const pageFound = () => ({
+    type: PAGE_FOUND
+});
+export const pageNotFound = () => ({
+    type: PAGE_NOT_FOUND
 });
 
 export const initializeApp = () => dispatch => {

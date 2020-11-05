@@ -1,0 +1,30 @@
+@import "src/common_styles/variables";
+@import "src/common_styles/mixins";
+
+.myPosts {
+    grid-area: myPosts;
+}
+
+.empty {
+    @include component-main-bg-template();
+    @include second-text-shadow-template($secondColor);
+    height: 350px;
+    color: $secondColor;
+    &__heading {
+        @include main-box-shadow-template(5, 10, $mainColor, true);
+        display: inline-block;
+        padding: 12px;
+        border: 2px solid $accentNeonColor;
+        border-radius: 3px;
+        margin: 25px;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__img {
+        @include item-size-template(150px, 150px);
+        margin: 20px 0;
+    }
+}
