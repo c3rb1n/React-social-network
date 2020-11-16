@@ -7,7 +7,7 @@ const initialState = {
         {name: "Brendan", messages: ["JavaScript is awesome!"]},
         {name: "Donald", messages: ["Let's test your knowledge of algorithms."]},
         {name: "Guido", messages: ["🐍"]},
-        {name: "Mark", messages: ["Oh, hi! Do you like React?"]},
+        {name: "Dan", messages: ["Oh, hi! Do you like React?"]},
         {name: "Linus", messages: ["Want to travel all over the world and speak at a bunch of different conferences - just write Linux."]},
         {name: "Andrew", messages: ["Please tell the guy above that Linux is outdated."]}
     ]

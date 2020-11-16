@@ -17,10 +17,10 @@ let initialState = {
         "Robert",
         "Brendan",
         "Donald",
+        "Dan",
+        "Linus",
         "Bjarne",
         "Guido",
-        "Mark",
-        "Linus",
         "Andrew",
         "Bill"
     ],

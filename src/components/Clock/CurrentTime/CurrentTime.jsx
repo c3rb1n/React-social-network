@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import classes from "./CurrentTime.module.scss";
 
 const CurrentTime = ({date, appendNull}) => {
-    const hoursConverter = hours => hours >= 12 ? hours - 12 : hours;
+    const hoursConverter = hours => hours >= 13 ? hours - 12 : hours;
     const ampmChanger = hours => hours >= 12 ? "PM" : "AM";
 
     const tick = () => {
