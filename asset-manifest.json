@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "//c3rb1n.github.io/React-social-network/static/css/main.0e98c725.chunk.css",
-    "main.js": "//c3rb1n.github.io/React-social-network/static/js/main.1bec5d8e.chunk.js",
-    "main.js.map": "//c3rb1n.github.io/React-social-network/static/js/main.1bec5d8e.chunk.js.map",
-    "runtime-main.js": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.b3c9dfa6.js",
-    "runtime-main.js.map": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.b3c9dfa6.js.map",
+    "main.js": "//c3rb1n.github.io/React-social-network/static/js/main.c385f61c.chunk.js",
+    "main.js.map": "//c3rb1n.github.io/React-social-network/static/js/main.c385f61c.chunk.js.map",
+    "runtime-main.js": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.4a37cca9.js",
+    "runtime-main.js.map": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.4a37cca9.js.map",
     "static/css/2.14c34bbb.chunk.css": "//c3rb1n.github.io/React-social-network/static/css/2.14c34bbb.chunk.css",
-    "static/js/2.b932427a.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/2.b932427a.chunk.js",
-    "static/js/2.b932427a.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/2.b932427a.chunk.js.map",
+    "static/js/2.f2d292d6.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/2.f2d292d6.chunk.js",
+    "static/js/2.f2d292d6.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/2.f2d292d6.chunk.js.map",
     "static/css/3.8365a09e.chunk.css": "//c3rb1n.github.io/React-social-network/static/css/3.8365a09e.chunk.css",
-    "static/js/3.d0fc610a.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/3.d0fc610a.chunk.js",
-    "static/js/3.d0fc610a.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/3.d0fc610a.chunk.js.map",
+    "static/js/3.e9e57cec.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/3.e9e57cec.chunk.js",
+    "static/js/3.e9e57cec.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/3.e9e57cec.chunk.js.map",
     "static/css/4.ca00cf11.chunk.css": "//c3rb1n.github.io/React-social-network/static/css/4.ca00cf11.chunk.css",
-    "static/js/4.6b4f6617.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/4.6b4f6617.chunk.js",
-    "static/js/4.6b4f6617.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/4.6b4f6617.chunk.js.map",
+    "static/js/4.9dd05434.chunk.js": "//c3rb1n.github.io/React-social-network/static/js/4.9dd05434.chunk.js",
+    "static/js/4.9dd05434.chunk.js.map": "//c3rb1n.github.io/React-social-network/static/js/4.9dd05434.chunk.js.map",
     "index.html": "//c3rb1n.github.io/React-social-network/index.html",
-    "precache-manifest.9e7a91276c6a0509d6c84338fdee76c0.js": "//c3rb1n.github.io/React-social-network/precache-manifest.9e7a91276c6a0509d6c84338fdee76c0.js",
+    "precache-manifest.594c0e9d2039e5af34903cd4b48583c7.js": "//c3rb1n.github.io/React-social-network/precache-manifest.594c0e9d2039e5af34903cd4b48583c7.js",
     "service-worker.js": "//c3rb1n.github.io/React-social-network/service-worker.js",
     "static/css/2.14c34bbb.chunk.css.map": "//c3rb1n.github.io/React-social-network/static/css/2.14c34bbb.chunk.css.map",
     "static/css/3.8365a09e.chunk.css.map": "//c3rb1n.github.io/React-social-network/static/css/3.8365a09e.chunk.css.map",
     "static/css/4.ca00cf11.chunk.css.map": "//c3rb1n.github.io/React-social-network/static/css/4.ca00cf11.chunk.css.map",
     "static/css/main.0e98c725.chunk.css.map": "//c3rb1n.github.io/React-social-network/static/css/main.0e98c725.chunk.css.map",
-    "static/js/2.b932427a.chunk.js.LICENSE.txt": "//c3rb1n.github.io/React-social-network/static/js/2.b932427a.chunk.js.LICENSE.txt",
+    "static/js/2.f2d292d6.chunk.js.LICENSE.txt": "//c3rb1n.github.io/React-social-network/static/js/2.f2d292d6.chunk.js.LICENSE.txt",
     "static/media/index.scss": "//c3rb1n.github.io/React-social-network/static/media/Montserrat-Light.409c7f79.ttf",
     "static/media/Three Chain Links - Hot Nights in Los Angeles.mp3": "//c3rb1n.github.io/React-social-network/static/media/Three Chain Links - Hot Nights in Los Angeles.db96e9ec.mp3",
     "static/media/document.svg": "//c3rb1n.github.io/React-social-network/static/media/document.8b378298.svg",
@@ -29,10 +29,10 @@
     "static/media/user.svg": "//c3rb1n.github.io/React-social-network/static/media/user.ad5f90ba.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b3c9dfa6.js",
+    "static/js/runtime-main.4a37cca9.js",
     "static/css/2.14c34bbb.chunk.css",
-    "static/js/2.b932427a.chunk.js",
+    "static/js/2.f2d292d6.chunk.js",
     "static/css/main.0e98c725.chunk.css",
-    "static/js/main.1bec5d8e.chunk.js"
+    "static/js/main.c385f61c.chunk.js"
   ]
 }

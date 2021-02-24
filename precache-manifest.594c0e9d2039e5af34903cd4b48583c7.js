@@ -1,47 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6eab08b23e7613eec406fbc38201db13",
+    "revision": "2020dbd42d25e30b395f035805580f47",
     "url": "//c3rb1n.github.io/React-social-network/index.html"
   },
   {
-    "revision": "348f61645e4f9d273bfb",
+    "revision": "0d249dcf810dcd66320b",
     "url": "//c3rb1n.github.io/React-social-network/static/css/2.14c34bbb.chunk.css"
   },
   {
-    "revision": "1f9672be2b46afe07469",
+    "revision": "6017b242777a7e05caae",
     "url": "//c3rb1n.github.io/React-social-network/static/css/3.8365a09e.chunk.css"
   },
   {
-    "revision": "a836f95e9d97bac28fe5",
+    "revision": "779fc6ec4225429b79cf",
     "url": "//c3rb1n.github.io/React-social-network/static/css/4.ca00cf11.chunk.css"
   },
   {
-    "revision": "e830edd76c2d11432a95",
+    "revision": "4fefb3dc391b2533acc5",
     "url": "//c3rb1n.github.io/React-social-network/static/css/main.0e98c725.chunk.css"
   },
   {
-    "revision": "348f61645e4f9d273bfb",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/2.b932427a.chunk.js"
+    "revision": "0d249dcf810dcd66320b",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/2.f2d292d6.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/2.b932427a.chunk.js.LICENSE.txt"
+    "url": "//c3rb1n.github.io/React-social-network/static/js/2.f2d292d6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1f9672be2b46afe07469",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/3.d0fc610a.chunk.js"
+    "revision": "6017b242777a7e05caae",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/3.e9e57cec.chunk.js"
   },
   {
-    "revision": "a836f95e9d97bac28fe5",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/4.6b4f6617.chunk.js"
+    "revision": "779fc6ec4225429b79cf",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/4.9dd05434.chunk.js"
   },
   {
-    "revision": "e830edd76c2d11432a95",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/main.1bec5d8e.chunk.js"
+    "revision": "4fefb3dc391b2533acc5",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/main.c385f61c.chunk.js"
   },
   {
-    "revision": "40f81ecbf3ec552cea1c",
-    "url": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.b3c9dfa6.js"
+    "revision": "de8b211d643d81ce44c6",
+    "url": "//c3rb1n.github.io/React-social-network/static/js/runtime-main.4a37cca9.js"
   },
   {
     "revision": "409c7f79a42e56c785f50ed37535f0be",
